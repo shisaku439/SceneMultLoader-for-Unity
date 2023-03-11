@@ -3,17 +3,19 @@
 
 ### Unity上で1つ以上のシーンを遷移、管理する目的のために作ったアセットです。
 
-#### ※注意点　読み込んだ順にしかシーン遷移できません
+#### ※注意点　読み込んだシーンの順と遷移させるシーンの順は変更することができません。
 ```
-例えば、シーンA、シーンB、シーンCの順番でシーンを読み込んで待機させた場合
-シーンA、シーンB、シーンC、の順番で遷移しません。
-シーンB、シーンA、シーンC、の順番で遷移することはできません。
+例えば、
+シーンA、シーンB、シーンC、の順番でシーンを読み込んで待機させた場合
+シーンA、シーンB、シーンC、の順番でしか遷移しません。
+シーンB、シーンA、シーンC、など順番を変えて遷移させることはできません。
 
-原因は、AsyncOperation.allowSceneActivationを使っているためです。
-シーンAの allowSceneActivation = true をしないと
+原因は、
+AsyncOperation.allowSceneActivation を使っているためです。
+シーンAの allowSceneActivation = true を実行しないと
 次のシーンBの allowSceneActivation = true が実行されないようです。
 ```
-[AsyncOperation.allowSceneActivatio の公式リファレンス参照](https://docs.unity3d.com/ja/2019.4/ScriptReference/AsyncOperation-allowSceneActivation.html)
+　[AsyncOperation.allowSceneActivatio の公式リファレンス参照](https://docs.unity3d.com/ja/2019.4/ScriptReference/AsyncOperation-allowSceneActivation.html)
 
 
 # 主なメソッド一覧
@@ -49,7 +51,6 @@
 ```
   CloseScene(string sceneName)
    sceneName:削除したいシーン名
-   
 ```
 
 
