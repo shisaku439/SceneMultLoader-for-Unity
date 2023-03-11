@@ -16,9 +16,10 @@
 [AsyncOperation.allowSceneActivatio の公式リファレンス参照](https://docs.unity3d.com/ja/2019.4/ScriptReference/AsyncOperation-allowSceneActivation.html)
 
 
-主なメソッド一覧
+# 主なメソッド一覧
+
+#### シーン読み込み
 ```
-# シーン読み込み
   SetScene(string sceneName,int mode)
    sceneName:遷移先のシーン名
    mode:遷移の仕方
@@ -27,9 +28,9 @@
     
  （この段階ではシーン遷移はせず裏でシーンの読み込みを開始する）
 
-
 ```
-# シーンの読み込み状況
+
+#### シーンの読み込み状況
 ```
   GetProgress(sceneName)
    sceneName:読み込みの進捗を知りたいシーン名
@@ -38,13 +39,13 @@
    シーン名が一致しない場合　‐１を返す。
 ```
 
-# 読み込み完了したシーンの遷移
+#### 読み込み完了したシーンの遷移
 ```
   OpenScene(string sceneName)
    sceneName:読み込んだシーン名
 ```   
 
-# ゲームシーンにあるシーンの削除
+#### ゲームシーンにあるシーンの削除
 ```
   CloseScene(string sceneName)
    sceneName:削除したいシーン名
