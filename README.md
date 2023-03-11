@@ -3,7 +3,7 @@
 
 ### Unity上で1つ以上のシーンを遷移、管理する目的のために作ったアセットです。
 
-#### ※注意点　読み込んだシーンの順と遷移させるシーンの順は変更することができません。
+#### ※注意点　読み込んだシーンの順にしかシーンを遷移させることができません。
 ```
 例えば、
 シーンA、シーンB、シーンC、の順番でシーンを読み込んで待機させた場合
@@ -13,9 +13,10 @@
 原因は、
 AsyncOperation.allowSceneActivation を使っているためです。
 シーンAの allowSceneActivation = true を実行しないと
-次のシーンBの allowSceneActivation = true が実行されないようです。
+次のシーンBの allowSceneActivation = true が実行されないため
+読み込んだ順にしか遷移させることができない仕組みになっています。
 ```
-　[AsyncOperation.allowSceneActivatio の公式リファレンス参照](https://docs.unity3d.com/ja/2019.4/ScriptReference/AsyncOperation-allowSceneActivation.html)
+[AsyncOperation.allowSceneActivatio の公式リファレンス参照](https://docs.unity3d.com/ja/2019.4/ScriptReference/AsyncOperation-allowSceneActivation.html)
 
 
 # 主なメソッド一覧
@@ -32,7 +33,7 @@ AsyncOperation.allowSceneActivation を使っているためです。
 
 ```
 
-#### シーンの読み込み状況
+#### シーンの読み込み状況取得
 ```
   GetProgress(sceneName)
    sceneName:読み込みの進捗を知りたいシーン名
